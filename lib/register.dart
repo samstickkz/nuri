@@ -9,6 +9,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  bool isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,8 +37,10 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
+
+
               Stack(
                 children: [
 
@@ -100,146 +104,175 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(
                 height: 24,
               ),
+              // second half of the page
+
+              // listview
+
               Container(
                 height: 479,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     color: HexColor('CFF3E1')),
-                child: Column(
+                child: ListView(
                   children: [
-                    Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 19.0, vertical: 27),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 51,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                color: HexColor('CFF3E1'),
-                                borderRadius: BorderRadius.circular(8),
-                                boxShadow: const [
-                                  BoxShadow(
-                                    color: Colors.grey,
-                                    offset: Offset(0.0, 1.2),
-                                    blurRadius: 1,
-                                    spreadRadius: 0.0,
-                                  ),
-                                ],
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Login with Google',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontSize: 17,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 14,
-                            ),
-                            Container(
-                              height: 51,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                color: HexColor('CFF3E1'),
-                                borderRadius: BorderRadius.circular(8),
-                                boxShadow: const [
-                                  BoxShadow(
-                                    color: Colors.grey,
-                                    offset: Offset(0.0, 1.2),
-                                    blurRadius: 1,
-                                    spreadRadius: 0.0,
-                                  ),
-                                ],
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'Login with Apple',
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 33,
-                            ),
-                            const Text(
-                              'or',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 33,
-                            ),
-                            TextField(
-                              obscureText: true,
-                              // controller: _passwordcontroller,
-
-                              decoration: InputDecoration(
-                                fillColor: HexColor('CFF3E1'),
-                                filled: true,
-                                labelText: 'Enter your password..',
-                                border: const OutlineInputBorder(),
-                                suffixIcon:
-                                const Icon(Icons.remove_red_eye_sharp),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 9,
-                            ),
-                            TextField(
-                              obscureText: true,
-                              // controller: _passwordcontroller,
-
-                              decoration: InputDecoration(
-                                fillColor: HexColor('CFF3E1'),
-                                filled: true,
-                                labelText: 'Enter your Email..',
-                                border: const OutlineInputBorder(),
-                                suffixIcon:
-                                const Icon(Icons.remove_red_eye_sharp),
-                              ),
-                            ),
-                            const SizedBox(
-                              height: 31,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                    Column(
+                      children: [
+                        Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 19.0, vertical: 27),
+                            child: Column(
                               children: [
+                                Container(
+                                  height: 51,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: HexColor('CFF3E1'),
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        color: Colors.grey,
+                                        offset: Offset(0.0, 1.2),
+                                        blurRadius: 1,
+                                        spreadRadius: 0.0,
+                                      ),
+                                    ],
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      'Login with Google',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontSize: 17,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 14,
+                                ),
+                                Container(
+                                  height: 51,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: HexColor('CFF3E1'),
+                                    borderRadius: BorderRadius.circular(8),
+                                    boxShadow: const [
+                                      BoxShadow(
+                                        color: Colors.grey,
+                                        offset: Offset(0.0, 1.2),
+                                        blurRadius: 1,
+                                        spreadRadius: 0.0,
+                                      ),
+                                    ],
+                                  ),
+                                  child: const Center(
+                                    child: Text(
+                                      'Login with Apple',
+                                      style: TextStyle(
+                                        fontSize: 17,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 33,
+                                ),
                                 const Text(
-                                  'New to Nurika?',
+                                  'or',
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
+                                    color: Colors.black,
                                   ),
                                 ),
-                                GestureDetector(
+                                const SizedBox(
+                                  height: 33,
+                                ),
+                                TextField(
+                                  obscureText: true,
+                                  // controller: _passwordcontroller,
 
-
-
-
-                                  child: Text(
-                                    'Sign up',
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: HexColor('0500FF')),
+                                  decoration: InputDecoration(
+                                    fillColor: HexColor('CFF3E1'),
+                                    filled: true,
+                                    labelText: 'Enter your password..',
+                                    border: const OutlineInputBorder(),
+                                    suffixIcon:
+                                    const Icon(Icons.remove_red_eye_sharp),
                                   ),
                                 ),
+                                const SizedBox(
+                                  height: 9,
+                                ),
+
+                                TextField(
+                                  obscureText: true,
+                                  // controller: _passwordcontroller,
+
+                                  decoration: InputDecoration(
+                                    fillColor: HexColor('CFF3E1'),
+                                    filled: true,
+                                    labelText: 'Enter your Email..',
+                                    border: const OutlineInputBorder(),
+                                    suffixIcon:
+                                    const Icon(Icons.remove_red_eye_sharp),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 31,
+                                ),
+
+                                TextField(
+                                  obscureText: true,
+                                  // controller: _passwordcontroller,
+
+                                  decoration: InputDecoration(
+                                    fillColor: HexColor('CFF3E1'),
+                                    filled: true,
+                                    labelText: 'Enter your Email..',
+                                    border: const OutlineInputBorder(),
+                                    suffixIcon:
+                                    const Icon(Icons.remove_red_eye_sharp),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 31,
+                                ),
+
+                                TextField(
+                                  obscureText: true,
+                                  // controller: _passwordcontroller,
+
+                                  decoration: InputDecoration(
+                                    fillColor: HexColor('CFF3E1'),
+                                    filled: true,
+                                    labelText: 'Enter your Email..',
+                                    border: const OutlineInputBorder(),
+                                    suffixIcon:
+                                    const Icon(Icons.remove_red_eye_sharp),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 31,
+                                ),
+
                               ],
-                            ),
-                          ],
-                        )),
+                            )),
+
+
+                      ],
+                    ),
+
+
+
                   ],
+
                 ),
               ),
+
+
               const SizedBox(
                 height: 13,
               ),
