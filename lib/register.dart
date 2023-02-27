@@ -9,7 +9,15 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  bool isChecked = false;
+  bool _isChecked = false;
+
+  void _onCheckboxChanged(bool? newValue) {
+    setState(() {
+      _isChecked = newValue ?? false; // set to false if null
+    });
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -40,29 +48,24 @@ class _RegisterPageState extends State<RegisterPage> {
                 height: 20,
               ),
 
-
               Stack(
                 children: [
-
                   Padding(
                     padding: const EdgeInsets.only(top: 50.0),
                     child: Container(
                         child: Column(
-                          children: [
-                            Container(
-                              width: double.infinity,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                  color: HexColor('F89820'),
-                                  borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(35),
-                                      bottomRight: Radius.circular(35))),
-                            ),
-
-
-                          ],
-                        )
-                    ),
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              color: HexColor('F89820'),
+                              borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(35),
+                                  bottomRight: Radius.circular(35))),
+                        ),
+                      ],
+                    )),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 50.0),
@@ -76,9 +79,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               bottomRight: Radius.circular(35))),
                     ),
                   ),
-
-
-
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Text(
@@ -89,9 +89,8 @@ class _RegisterPageState extends State<RegisterPage> {
                           color: HexColor('006633')),
                     ),
                   ),
-
                   Padding(
-                    padding: const EdgeInsets.only(top: 30.0,left: 8),
+                    padding: const EdgeInsets.only(top: 30.0, left: 8),
                     child: const Text(
                       'Lets get you started',
                       style: TextStyle(
@@ -200,13 +199,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                     labelText: 'Enter your password..',
                                     border: const OutlineInputBorder(),
                                     suffixIcon:
-                                    const Icon(Icons.remove_red_eye_sharp),
+                                        const Icon(Icons.remove_red_eye_sharp),
                                   ),
                                 ),
                                 const SizedBox(
                                   height: 9,
                                 ),
-
                                 TextField(
                                   obscureText: true,
                                   // controller: _passwordcontroller,
@@ -217,13 +215,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                     labelText: 'Enter your Email..',
                                     border: const OutlineInputBorder(),
                                     suffixIcon:
-                                    const Icon(Icons.remove_red_eye_sharp),
+                                        const Icon(Icons.remove_red_eye_sharp),
                                   ),
                                 ),
                                 const SizedBox(
-                                  height: 31,
+                                  height: 9,
                                 ),
-
                                 TextField(
                                   obscureText: true,
                                   // controller: _passwordcontroller,
@@ -234,13 +231,12 @@ class _RegisterPageState extends State<RegisterPage> {
                                     labelText: 'Enter your Email..',
                                     border: const OutlineInputBorder(),
                                     suffixIcon:
-                                    const Icon(Icons.remove_red_eye_sharp),
+                                        const Icon(Icons.remove_red_eye_sharp),
                                   ),
                                 ),
                                 const SizedBox(
-                                  height: 31,
+                                  height: 9,
                                 ),
-
                                 TextField(
                                   obscureText: true,
                                   // controller: _passwordcontroller,
@@ -251,27 +247,139 @@ class _RegisterPageState extends State<RegisterPage> {
                                     labelText: 'Enter your Email..',
                                     border: const OutlineInputBorder(),
                                     suffixIcon:
-                                    const Icon(Icons.remove_red_eye_sharp),
+                                        const Icon(Icons.remove_red_eye_sharp),
                                   ),
                                 ),
                                 const SizedBox(
-                                  height: 31,
+                                  height: 26,
+                                ),
+                                
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text('Already have an account?',style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),),
+const SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text('Log in', style: TextStyle(
+                                      color: HexColor('#0500FF'),
+                                      fontWeight: FontWeight.bold,
+                                    ),),
+
+                                  ],
+                                ),
+
+                                SizedBox(height: 30,),
+                                // terms and conditions checkbox
+
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('I accept the terms',style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),),
+                                        Text('By creating an account you accept our Ter hsygw  hjvd',
+                                          softWrap: true,
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: 10,
+                                          ),
+                                        ),
+                                        
+                                        Text(' & Privacy Policy',style: TextStyle(
+                                         fontSize: 10,
+                                        ),),
+
+                                      ],
+                                      
+                                    ),
+                                    
+                                    Column(
+                                      children: [
+                                        Checkbox(
+                                          activeColor: HexColor('F89820'),
+                                          side: const BorderSide(
+                                            color: Colors.black,
+                                          ),
+
+                                          checkColor: Colors.black,
+                                          value: _isChecked,
+                                          onChanged: _onCheckboxChanged,
+
+                                        ),
+                                      ],
+                                    ),
+                                      
+
+
+
+                                  ],
+                                ),
+
+                                SizedBox(height: 16,),
+
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text('I accept the terms',style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),),
+                                        Text('By creating an account you accept our Ter hsygw  hjvd',
+                                          softWrap: true,
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            fontSize: 10,
+                                          ),
+                                        ),
+
+                                        Text(' & Privacy Policy',style: TextStyle(
+                                          fontSize: 10,
+                                        ),),
+
+                                      ],
+
+                                    ),
+
+                                    Column(
+                                      children: [
+                                        Checkbox(
+                                          activeColor: HexColor('F89820'),
+                                          side: const BorderSide(
+                                            color: Colors.black,
+                                          ),
+
+                                          checkColor: Colors.black,
+                                          value: _isChecked,
+                                          onChanged: _onCheckboxChanged,
+
+                                        ),
+                                      ],
+                                    ),
+
+
+
+
+                                  ],
                                 ),
 
                               ],
                             )),
-
-
                       ],
                     ),
-
-
-
                   ],
-
                 ),
               ),
-
 
               const SizedBox(
                 height: 13,
@@ -300,3 +408,5 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
+
+
