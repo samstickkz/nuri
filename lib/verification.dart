@@ -23,17 +23,22 @@ class _VerificationPageState extends State<VerificationPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                        height: 27,
-                        width: 27,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: HexColor('535353'),
-                        ),
-                        child: const Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                        )),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                          height: 27,
+                          width: 27,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: HexColor('535353'),
+                          ),
+                          child: const Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                          )),
+                    ),
 
                     Text('Verification',style: TextStyle(
                       fontWeight: FontWeight.bold,
@@ -68,20 +73,80 @@ class _VerificationPageState extends State<VerificationPage> {
 
                   child: Column(
                     children: [
-                      TextField(
-                        decoration: InputDecoration(
+                      Padding(
+                        padding: const EdgeInsets.all(29.0),
+                        child: TextField(
 
+                          strutStyle: const StrutStyle(height: 1.5),
+                          keyboardType: TextInputType.number,
+
+                          // controller: _passwordcontroller,
+
+                          decoration: InputDecoration(
+
+                            fillColor: HexColor('CFF3E1'),
+                            filled: true,
+
+                            border: const OutlineInputBorder(
+
+                            
+                            ),
+
+                          ),
                         ),
+                      ),
 
+                      Column(
+                        children: [
+                          Text('01:12',style: TextStyle(
+                            fontSize: 12,
+                            color: HexColor('535353'),
+                          ),),
 
-                        keyboardType: TextInputType.number,
+                          SizedBox(height: 10,),
 
-                      )
+                          Text('Resend Code',style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 12,
+                            color: HexColor('535353'),
+                          ),),
+                        ],
+                      ),
+
+                      // verify button
+                      Padding(
+                        padding: const EdgeInsets.all(29.0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: const Offset(0, 3), // changes position of shadow
+                              ),
+                            ],
+                            borderRadius: BorderRadius.circular(8),
+                            color: HexColor('CFF3E1'),
+                          ),
+                          child: const Center(
+                            child: Text('Verify',style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),),
+                          ),
+                        ),
+                      ),
                     ],
 
                   ),
 
                 ),
+                
+
 
               ],
             ),
